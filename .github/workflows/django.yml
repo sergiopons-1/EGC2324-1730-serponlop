@@ -43,6 +43,10 @@ jobs:
         cd decide
         coverage run --branch --source=. ./manage.py test  --keepdb 
         coverage xml 
+  cobertura: 
+    runs-on: ubuntu-latest 
+    needs: build 
+    steps:
     - name: Codacy Coverage Reporter
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
